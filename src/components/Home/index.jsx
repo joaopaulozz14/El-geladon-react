@@ -23,6 +23,7 @@ const Home = () => {
     getPalettes();
   }, []);
 
+  //Está passando como props o objeto, e no card manipula o objeto, ao invés de passar separadamente cada objeto;
   return (
     <div className="home-container">
       <h2>Lista de Paletas</h2>
