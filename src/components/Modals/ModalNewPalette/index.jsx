@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import "./style.css";
+import api from "../../../api";
 
 const ModalNewPalette = ({closeModal, getPalettes}) => {
   const [sabor, setSabor] = useState("");
@@ -18,7 +19,7 @@ const ModalNewPalette = ({closeModal, getPalettes}) => {
       //sabor: flavour, preco: price
     };
 
-    const response = await fetch(
+    /*const response = await fetch(
       "http://localhost:8080/paletas/create-paleta",
       {
         method: "post",
@@ -29,12 +30,16 @@ const ModalNewPalette = ({closeModal, getPalettes}) => {
         body: JSON.stringify(newPalette),
       }
     );
+    const palette = await response.json();
+    */
+
+    const response = await api.post("/paletas/create-paleta", newPalette);
     
     if(response.status !== 201){
       return toast.error("Falha na criação");
     }
-    console.log(response);
-    const palette = await response.json();
+   
+    
 
     //Verificação pelo id
     //!== undefined

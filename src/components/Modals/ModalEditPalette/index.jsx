@@ -1,6 +1,8 @@
 import "./style.css";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import api from "../../../api";
+
 const ModalEditPalette = ({ closeModal, palette, getPalettes }) => {
   const [sabor, setSabor] = useState(palette.sabor);
   const [preco, setPreco] = useState(palette.preco);
@@ -14,8 +16,8 @@ const ModalEditPalette = ({ closeModal, palette, getPalettes }) => {
       descricao,
       foto,
     };
-
-    const response = await fetch(
+    //REQUISIÇÃO COM FETCH
+    /*const response = await fetch(
       `http://localhost:8080/paletas/update-paleta/${palette._id}`,
       {
         method: "PUT",
@@ -25,10 +27,14 @@ const ModalEditPalette = ({ closeModal, palette, getPalettes }) => {
         },
         body: JSON.stringify(editedPalette),
       }
-    );
+    );*/
 
-    if(response.status !== 200){
-        return toast.error("Falha na atualização");
+    const response = await api.put(
+      `/paletas/update-paleta/${palette._id}`,
+      editedPalette
+    );
+    if (response.status !== 200) {
+      return toast.error("Falha na atualização");
     }
 
     closeModal();
@@ -42,37 +48,36 @@ const ModalEditPalette = ({ closeModal, palette, getPalettes }) => {
         <div>
           <h3>Editar Paleta</h3>
           <button onClick={closeModal}>X</button>
-          </div>
-          <input
-            value={sabor}
-            placeholder="Digite o sabor"
-            onChange={(event) => setSabor(event.target.value)}
-            name="sabor"
-            type="text"
-          />
-          <input
-            value={preco}
-            placeholder="Digite o preço"
-            onChange={(event) => setPreco(event.target.value)}
-            name="preco"
-            type="number"
-          />
-          <input
-            value={descricao}
-            placeholder="Digite a descrição"
-            onChange={(event) => setDescricao(event.target.value)}
-            name="descricao"
-            type="text"
-          />
-          <input
-            value={foto}
-            placeholder="Digite o caminho da foto"
-            onChange={(event) => setFoto(event.target.value)}
-            name="foto"
-            type="text"
-          />
-          <button onClick={handleEditPalette}>Editar</button>
-        
+        </div>
+        <input
+          value={sabor}
+          placeholder="Digite o sabor"
+          onChange={(event) => setSabor(event.target.value)}
+          name="sabor"
+          type="text"
+        />
+        <input
+          value={preco}
+          placeholder="Digite o preço"
+          onChange={(event) => setPreco(event.target.value)}
+          name="preco"
+          type="number"
+        />
+        <input
+          value={descricao}
+          placeholder="Digite a descrição"
+          onChange={(event) => setDescricao(event.target.value)}
+          name="descricao"
+          type="text"
+        />
+        <input
+          value={foto}
+          placeholder="Digite o caminho da foto"
+          onChange={(event) => setFoto(event.target.value)}
+          name="foto"
+          type="text"
+        />
+        <button onClick={handleEditPalette}>Editar</button>
       </div>
     </div>
   );

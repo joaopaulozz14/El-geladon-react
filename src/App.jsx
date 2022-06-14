@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import axios from "axios";
+import api from "./api";
 //Fragment <> </>
 //Toaster é uma função do react para mostrar mensagens prontas na tela(erro, sucesso);
 function App() {
@@ -13,11 +13,10 @@ function App() {
 
   // Declaração das funções
   const getPalettes = async () => {
-    const response = await axios.get("http://localhost:8080/paletas/all-paletas");
+    const response = await api.get("/paletas/all-paletas");
     //const palettesList = await response.json();
 
-    console.log(palettesList);
-    setPalettes(palettesList);
+    setPalettes(response.data);
   };
 
   // Declaração dos ciclos de vida
