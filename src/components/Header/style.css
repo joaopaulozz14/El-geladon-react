@@ -7,19 +7,27 @@
     justify-content: space-around;
     align-items: center;
 }
-.header-container > div{
+.header-container > .headerTitle-container{
     display: flex;
     width: 70%;
-    
 }
-.header-container > div > img {
+.header-container > .headerTitle-container > h2 {
+    margin: auto 0;
+    font-size: xx-large;
+}
+.headerTitle-container > img{
     height: 10vh;
 }
-.header-container > div > h1{
-    align-items: center;
-    text-align: center;
+.headerOptions-container{
+    display: flex;
 }
-.header-container > img {
-    height: 6vh;
-
+.headerOptions-container > abbr > .headerOptions-checkoutIcon{
+    height: 5.7vh;
+    margin-left: 1vw;
+    margin-bottom: 1.2vh;
+    cursor: pointer;
+}
+.headerOptions-container > abbr > .headerOptions-newPaletteIcon{
+    height: 7.5vh;
+    cursor: pointer;
 }

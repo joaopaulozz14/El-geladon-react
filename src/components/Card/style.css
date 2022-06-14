@@ -1,37 +1,68 @@
 .card-container {
-    width: 100px;
-    height: 170px;
+    width: 120px;
+    height: 220px;
     padding: 8px;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
   }
-  
-  .card-container > div {
-    display: flex;
-    width: 100%;
-    height: 70px;
-    justify-content: space-around;
+    
+  .card-container > p {
+    font-size: xx-small;
+    height: 35px;
+    margin-bottom: 5px;
   }
-  
-  .card-container > div > p {
-    margin-top: 15px;
-    font-size: smaller;
-  }
-  
-  .card-container > div > img {
-    width: 50px;
-  }
-  
   .card-container > h3 {
     height: 30px;
     font-size: small;
     margin-top: 5px;
     margin-bottom: 5px;
   }
+
   
-  .card-container > p {
-    font-size: xx-small;
-    height: 35px;
-    margin-bottom: 5px;
+  .card-header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-around;
   }
+  
+  .card-header > p {
+    margin-top: 15px;
+    font-size: smaller;
+  }
+  
+  .card-header > img {
+    width: 50px;
+    
+  }
+  .card-body > span {
+    width: 25px;
+    height: 25px;
+    margin-right: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-body > span > svg {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .card-body > span:hover {
+    border-radius: 50%;
+    background-color: #00b1d84d;
+  }
+  .card-body{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;   
+  }
+  .card-body > svg{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+ 

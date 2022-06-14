@@ -1,0 +1,26 @@
+
+.modal-container > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    padding-inline: 0.2rem;
+    padding: 1rem;
+}
+
+.modal-container > div > h3{
+    font-size: x-large;
+}
+
+.modal-container > div > button{
+    padding: 2px;
+}
+
+.modal-container > button{
+    padding: 0.2rem;
+    margin-top: 1px;
+}
+
+.modal-container > input{
+    padding: 0.2rem;
+    margin: 2px 1px;
+}
